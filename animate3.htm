@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+
+    <style>
+          html{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        
+      }
+        
+      body{
+       background-color: rgb(255, 255, 255);
+       display: flex;
+       justify-content: space-evenly;
+       align-items: center;
+       height: 100vh;
+       background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+
+    div{
+       
+        height: 55%;
+        width: 50%;
+        display: flex;
+        position: relative;
+        border-radius: 50px;
+        padding-right: 30px;
+        padding-bottom: 100px;
+    }
+
+    div .wheel{
+        width: 140px;
+        height: 140px;
+        position: relative;
+        top: 50%;
+        right:83.5%;
+        animation: rolling;
+        animation-duration: .1s;
+        animation-iteration-count: infinite;
+        }
+
+
+        div .wheel-two{
+        width: 140px;
+        height: 140px;
+        position: relative;
+        top: 50%;
+        right: 55.5%;
+        animation: rolling;
+        animation-duration: .1s;
+        animation-iteration-count: infinite;
+        
+        }
+
+
+        .line-container{
+            display: flex;
+            position: absolute;
+            height: 20px;
+            width: 100%;
+            padding: 0;
+            justify-content: space-evenly;
+            
+
+        }
+    
+
+        .line{
+            width: 13%;
+            height: 5cm;
+            animation: moving .1s linear infinite;
+            animation-fill-mode: forwards;
+            animation-direction: normal;
+            position: relative;
+            top:10px
+        }
+
+
+
+
+    
+        @keyframes rolling{
+            0%{
+                transform:rotate(-100deg);
+            }    
+            25%{
+                transform:rotate(-160deg); 
+            }
+            50%{
+                transform: rotate(-250deg); 
+            }
+            75%{
+                transform: rotate(-350deg); 
+            }
+            100%{
+                  transform:rotate(-450deg);      
+            }
+
+        }
+
+        @keyframes moving {
+            0% {
+                transform: translateX(0px);
+            }
+            100% {
+                transform: translateX(80px);  
+            }
+        }              
+
+    
+
+
+
+@media (max-width: 480px) {
+    div .wheel-two{
+        width: 125px;
+        height: 125px;
+        top: 50%;
+        right: 264%;
+        
+        }
+
+        div .wheel{
+        width: 125px;
+        height: 125px;
+        top: 50%;
+        right:87%;
+       
+        }
+
+       .line-container{
+            left: 140px;
+          }
+}
+
+        /* Extra small devices */
+   @media (min-width: 481px) and (max-width: 767px) {
+         
+    div .wheel-two{
+        width: 125px;
+        height: 125px;
+        top: 50%;
+        right: 264%;
+        
+        }
+
+        div .wheel{
+        width: 125px;
+        height: 125px;
+        top: 50%;
+        right:87%;
+       
+        }
+
+       .line-container{
+            left: 140px;
+          }
+}
+
+
+
+        /* Small tablets */
+        @media (min-width: 768px) and (max-width: 991px) {
+       
+         div .wheel-two{
+        top: 50%;
+        right: 163%;
+        width: 127px;
+        height: 127px;
+        }
+
+        div .wheel{
+         width: 127px;
+         height: 127px;
+        top: 50%;
+        right:53.5%;
+       
+        }
+       .line-container{
+            left: 40px;
+            margin-top: -20px;
+          }
+}
+
+
+
+        /* Large tablets/laptops */
+        @media (min-width: 992px) and (max-width: 1199px) {
+
+
+       div{
+             right: 20%;
+
+       }
+            
+            div .wheel-two{
+        top: 50%;
+        right: 164%;
+        width: 160px;
+        height: 160px;
+        }
+
+        div .wheel{
+         width: 160px;
+         height: 160px;
+        top: 50%;
+        right:54%;
+       
+        }
+       .line-container{
+            left: 40px;
+            margin-top: 43px;
+           
+          
+          }
+}
+
+
+        /* Desktops */
+        @media (min-width: 1200px) and (max-width: 1919px) {
+
+         
+       div{
+             right: 10%;
+
+       }
+            
+            div .wheel-two{
+        top: 50%;
+        right: 104%;
+        width: 137px;
+        height: 137px;
+        }
+
+        div .wheel{
+         width: 137px;
+         height: 137px;
+        top: 50%;
+        right:34.1%;
+       
+        }
+       .line-container{
+            left: 40px;
+           margin-bottom: 8px;
+            
+            
+          }
+        }
+
+
+
+
+
+    </style>
+
+
+
+</head>
+
+<body>
+    
+        <div>
+            <img src="car.png" alt="">
+            <img src="wheel.png" alt="" class="wheel">
+            <img src="wheel.png" alt="" class="wheel-two">
+        </div>
+      
+         <div class="line-container">           
+            <img src="line.png" alt="" class="line">                              
+           <img src="line.png" alt="" class="line">
+           <img src="line.png" alt="" class="line">
+           <img src="line.png" alt="" class="line">
+           <img src="line.png" alt="" class="line">
+           <img src="line.png" alt="" class="line">    
+        </div>     
+
+</body>
+
+
+</html>
