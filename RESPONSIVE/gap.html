@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRACTICE RESPONSIVENESS</title>
+
+    <style>
+
+       
+            body{
+                
+                border: solid black;
+                display: block;
+                flex-direction: column;
+            }
+
+            h1{
+                text-align: center;
+            }
+
+            #container, #container2{
+              border: solid grey;
+              height: 90vh;
+              display: flex;
+              flex-direction: row;
+              gap: 15px;
+              padding-top: 20px;
+              flex-wrap: wrap;
+              justify-content: center;
+              align-content: flex-start;
+              row-gap: 20px;
+            }
+
+            #container2{
+              border: solid red;
+              margin-top: 30px;
+          
+              
+            }
+
+            div .boxes {
+              width: 200px;
+              height: 250px;
+              border: solid black .5px;
+              box-sizing: border-box;
+            
+            }
+
+
+
+
+    @media only screen and (min-width: 320px) and (max-width: 479px) {
+    #container2{
+        height: 150vh; /* Makes the container twice the viewport height */
+        
+    }
+
+    #container{
+      height: 150vh;
+    }
+     div .boxes {
+      width: 120px;
+      height: 170px;
+    
+    }
+}
+
+       @media only screen and (min-width: 479px) and (max-width: 700px)   {
+
+        #container{
+      height: 220vh;
+    }
+
+    #container2{
+        height: 220vh; /* Makes the container twice the viewport height */  
+    }
+       }
+
+    
+       @media only screen and (min-width: 701px) and (max-width: 769px)  {
+        #container{
+      height: 230vh;
+    }
+
+    #container2{
+        height: 230vh; /* Makes the container twice the viewport height */  
+    }
+       }
+
+
+       @media only screen and  (min-width: 769px) and (max-width:800px){
+
+        #container{
+      height: 160vh;
+    }
+
+    #container2{
+        height:160vh; /* Makes the container twice the viewport height */  
+    }
+       }
+       
+       @media only screen and  (min-width: 900px){
+
+#container{
+height: 90vh;
+}
+
+#container2{
+height:90vh; /* Makes the container twice the viewport height */  
+}
+}
+
+
+       
+
+
+
+ 
+
+
+      
+
+    </style>
+</head>
+
+
+<body>
+     
+          <h1>TEST RESPONSIVENESS</h1>
+     <div id="container">
+         <div class="boxes">HELLO</div>
+         <div class="boxes">HELLO</div>
+         <div class="boxes">HELLO</div>
+         <div class="boxes">HELLO</div>
+         <div class="boxes">HELLO</div>
+         <div class="boxes">HELLO</div>
+         <div class="boxes">HELLO</div>
+         <div class="boxes">HELLO</div>
+     </div>   
+
+      <div id="container2">
+        <div class="boxes">HELLO</div>
+        <div class="boxes">HELLO</div>
+        <div class="boxes">HELLO</div>
+        <div class="boxes">HELLO</div>
+        <div class="boxes">HELLO</div>
+        <div class="boxes">HELLO</div>
+        <div class="boxes">HELLO</div>
+        <div class="boxes">HELLO</div>
+      </div>
+
+
+
+
+</body>
+
+</html>
