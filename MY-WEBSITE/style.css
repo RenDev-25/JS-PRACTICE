@@ -15,17 +15,29 @@ background-color: black;
 header{
     background-color: white;
     border: solid 1px  green ;
+    height: 80px;
 }
 
 nav{
     border: solid yellow;
     display: flex;
+        height: 80px;
+        justify-content:space-between
+}
+
+.logo{
+    border: solid violet;
 }
 
 
 ul{
     border: solid red;
-    width: 100px;
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+
 }
 
 ul li{
@@ -35,3 +47,4 @@ ul li{
 ul li a{
     text-decoration: none;
 }
+
