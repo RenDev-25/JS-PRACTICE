@@ -1,0 +1,37 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+body{
+
+
+background-color: black;
+
+}
+
+header{
+    background-color: white;
+    border: solid 1px  green ;
+}
+
+nav{
+    border: solid yellow;
+    display: flex;
+}
+
+
+ul{
+    border: solid red;
+    width: 100px;
+}
+
+ul li{
+   list-style: none;
+}
+
+ul li a{
+    text-decoration: none;
+}
