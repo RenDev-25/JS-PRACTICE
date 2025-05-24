@@ -15,13 +15,13 @@ background-color: black;
 header{
     background-color: white;
     border: solid 1px  green ;
-    height: 80px;
+    height: 90px;
 }
 
 nav{
     border: solid yellow;
     display: flex;
-        height: 80px;
+        height: 90px;
         justify-content:space-between
 }
 
@@ -37,8 +37,8 @@ ul{
     justify-content: space-around;
     align-items: center;
     
-
 }
+
 
 ul li{
    list-style: none;
@@ -46,5 +46,35 @@ ul li{
 
 ul li a{
     text-decoration: none;
+}
+
+.nav-icons{
+    display: flex;
+    justify-content: right;
+    gap:10px;
+   
+    width: 20%;
+}
+
+.nav-icons .fa-solid{
+    margin-right: 40px;
+}
+
+
+
+
+@media (max-width: 600px) {
+.nav-icons{
+    display: none;
+}
+
+ul{
+    display: none;
+}
+
+nav{
+    justify-content: left;
+}
+
 }
 
