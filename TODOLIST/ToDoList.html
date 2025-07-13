@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TO‑DO LIST PROJECT</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: sans-serif;
+    }
+
+    body {
+      background: aqua;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .container {
+      background: rgb(210, 160, 160);
+      width: 35%;
+      min-height: 30vh;
+      border: solid black;
+      border-radius: 20px;
+      padding: 10px;
+      margin-top: 10px;
+    }
+
+    h2 {
+      margin-top: 20px;
+      text-align: center;
+      color: white;
+    }
+
+    .sub-cntnr {
+      margin-left: 15px;
+      margin-top: 5px;
+    }
+
+    .row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 25px;
+    }
+
+    .row button {
+      margin-right: 20px;
+      width: 80px;
+    }
+
+    input {
+      width: 70%;
+      padding: 5px;
+    }
+
+    input,
+    button {
+      height: 35px;
+      border-radius: 10px;
+      border: none;
+    }
+
+    ul li {
+      list-style: none;
+      font-size: 17px;
+      padding: 12px 40px 12px 50px;
+      user-select: none;
+      cursor: pointer;
+      position: relative;
+    }
+
+    ul li::before {
+      content: '';
+      position: absolute;
+      height: 28px;
+      width: 28px;
+      border-radius: 50%;
+      background: url(unchecked.png) center/cover no-repeat;
+      top: 12px;
+      left: 8px;
+    }
+
+    ul li.checked {
+      color: red;
+      text-decoration: line-through;
+    }
+
+    ul li.checked::before {
+      background: url(checked.png) center/cover no-repeat;
+    }
+
+    .delete-btn {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 18px;
+      color: #333;
+    }
+
+    .delete-btn:hover {
+      color: #d00;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="sub-cntnr">
+      <h2>TO‑DO LIST</h2>
+
+      <div class="row">
+        <input type="text" id="input-box" placeholder="Add your task">
+        <button onclick="addTask()">ADD</button>
+      </div>
+
+      <ul id="list-container"></ul>
+    </div>
+  </div>
+
+  <script>
+    const inputBox = document.getElementById('input-box');
+    const listContainer = document.getElementById('list-container');
+
+    function addTask() {
+      const text = inputBox.value.trim();
+
+      if (text === '') {
+        alert('Please write a task');
+        return;
+      }
+
+      const li = document.createElement('li');
+
+      li.innerHTML = `
+        ${text}
+        <button class="delete-btn" aria-label="Delete task">
+          <i class="fas fa-trash"></i>
+        </button>
+      `;
+
+      listContainer.appendChild(li);
+      inputBox.value = '';
+    }
+
+    listContainer.addEventListener('click', function (e) {
+      if (e.target.closest('.delete-btn')) {
+        e.target.closest('li').remove();
+        return;
+      }
+
+      if (e.target.tagName === 'LI') {
+        e.target.classList.toggle('checked');
+      }
+    });
+  </script>
+</body>
+</html>
