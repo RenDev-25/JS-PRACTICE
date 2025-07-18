@@ -79,6 +79,20 @@
         padding: 10px;
        }
 
+       form input:focus{
+         border: solid pink;
+       }
+
+
+      form input.invalid {
+        border-color: red;
+        }
+
+   
+       form input.valid {
+        border-color: green;
+        }
+
        form button{
         
         height: 45px;
@@ -97,14 +111,10 @@
         text-decoration: none;
        }
 
-
-    
-
-
        
 
 
-
+    
     </style>
 </head>
 <body>
@@ -123,12 +133,8 @@
                   <input type="text" placeholder="Email or phone number" id="email" class="input">
                   <input type="password" placeholder="Password" id="psword" class="input">
 
-                  <button id="login" onclick="">LOGIN</button>
-
+                  <button id="logButton" type="button">LOGIN</button>  
                   <p><a href="https://www.w3schools.com/">Forgot Password</a></p>
-                  
-                
-
                   <h2><a href="https://www.w3schools.com/">CREATE ACCOUNT</a></h2>
 
 
@@ -138,9 +144,71 @@
 
  <script>
 
-    const email = document.getElementById("")
 
+            /* ───────────────
+     Grab elements
+  ─────────────────*/
+            const email     = document.getElementById('email');
+            const password  = document.getElementById('psword');
+            const logButton = document.getElementById('logButton');
 
+            /* ───────────────
+                Reusable helpers
+            ─────────────────*/
+            function liveValidate(el) {
+                el.classList.remove('valid', 'invalid');
+
+                if (el.value.trim().length < 5) {
+                el.classList.add('invalid');    // red via CSS
+                } else {
+                el.classList.add('valid');      // green via CSS
+                }
+            }
+
+            function clearValidation() {
+                email.classList.remove('valid', 'invalid');
+                password.classList.remove('valid', 'invalid');
+            }
+
+            function clearInputs() {
+                email.value = '';
+                password.value = '';
+            }
+
+            /* ───────────────
+                Event listeners
+            ─────────────────*/
+            function handleInput(event) {
+                liveValidate(event.target);       // works for either field
+            }
+
+            email.addEventListener('input', handleInput);
+            password.addEventListener('input', handleInput);
+
+            logButton.addEventListener('click', login);
+
+            /* ───────────────
+                Login logic
+            ─────────────────*/
+            function login() {
+                const emailOK    = email.value.trim().length >= 5;
+                const passwordOK = password.value.trim().length >= 5;
+
+                if (!emailOK || !passwordOK) {
+                // highlight both as invalid so user sees the problem
+                email.classList.add('invalid');
+                password.classList.add('invalid');
+                alert('Login failed — fields cannot be empty or shorter than 5 characters.');
+                return;                          // stop here
+                }
+
+                alert('You successfully logged in!');
+
+                clearInputs();
+                clearValidation();
+            }
+            
+ 
 
 </script>
 

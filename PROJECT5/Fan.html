@@ -1,0 +1,361 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>MINI FAN ANIMATION</title>
+        <link rel="icon" type="image/x-icon" href="fan.png">
+
+
+
+        <style>
+            *{      
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            }
+
+
+            body{
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+            }
+
+            .m-container{
+            background-color: rgb(255, 255, 255);
+            width: 60%;
+            height: 90%;     
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 100px;
+            
+
+            }
+
+            .fan-container{
+            width: 40%;
+            height: 59%;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+            margin-top: 0px;
+            
+
+                
+            }
+
+
+
+
+         .btn-container{
+            width: 67%;
+            height: 11%;
+            display: flex;
+            justify-content: space-around;
+            align-items:center;
+            gap: 15px;
+            background-color: rgb(32, 103, 201);
+            border-radius: 25px;
+            padding: 3px;
+            margin-bottom: 15px;
+            }
+
+            .btn-container .btn{
+            width: 80px;
+            height: 35px;
+            border-radius: 20px;
+            gap: 15px;
+            background-color: white;
+            font-weight:bold ;
+            cursor: pointer;
+            border-color: rgb(0, 0, 0);
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+
+            }
+
+            .btn-container .off-btn{
+                margin-right: 10px;
+                background-color: rgb(255, 0, 0);
+                color: white;
+                width: 70px;
+                height: 40px;
+
+
+            }
+
+             .btn-container .on-btn{
+                background-color: rgb(0, 255, 21);
+                color: black;
+                border-color: rgb(0, 0, 0) ;
+                width: 70px;
+                height: 40px;
+                 
+           
+            }
+
+            .btn-click{
+                box-shadow: 1px 1px 3px 2px rgb(255, 255, 255),  -1px -1px 3px 2px rgb(255, 255, 255); 
+                
+            }
+
+
+
+        /* CSS ANIMATION*/
+
+             img{
+            width: 100%;
+            height: 100%; 
+            border-radius: 160px;
+            padding: 0; 
+            
+            }
+
+            .fan-level-1 {
+            animation: rotate 0.11s linear infinite normal forwards;
+
+            }
+
+            .fan-level-2 {
+            animation: rotate 0.12s linear infinite normal forwards;
+
+            }
+
+            .fan-level-3 {
+            animation: rotate 0.14s linear infinite normal forwards;
+
+            }
+
+
+            .fan-stop {
+               animation: fan-slow-down 2.5s ease-out forwards;
+            }
+
+            .statLabel{
+                font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                display: block;
+                color: rgb(38, 0, 255);
+
+            }
+
+            .statLabelHidden{
+                font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                display: block;
+                color: white;
+
+            }
+
+
+
+            @keyframes rotate{
+
+
+                0% {
+                    transform: rotate(0deg);
+                }
+                100% {
+                    transform: rotate(360deg);
+                }
+
+
+            }
+
+
+
+            @keyframes fan-slow-down {
+                0% {
+                    transform: rotate(0deg);
+                }
+                20% {
+                    transform: rotate(180deg);
+                }
+                40% {
+                    transform: rotate(270deg);
+                }
+                60% {
+                    transform: rotate(300deg);
+                }
+                80% {
+                    transform: rotate(330deg);
+                }
+                100% {
+                    transform: rotate(360deg);
+                }
+                }
+
+ 
+      @media (max-width: 768px) {
+
+            body{
+                display: flex;
+                flex-direction: column;
+            }
+            .m-container {
+                flex-direction: column;  
+                width: 80%;
+                height: 100%;
+                
+                
+
+            }
+
+            .btn-container{
+                flex-direction: column;
+                height: 50%;
+                padding: 10px;
+                width: 50%;
+                
+                margin-bottom: 0px;
+            }
+
+             .fan-container{
+                margin-top: 80px;
+                height: 25%;
+                 width: 60%;
+                 align-items: end;
+                 margin-bottom: 0px;
+             }
+
+             img{
+             width: 199%;
+            height: 150%; 
+
+             }
+
+
+
+           
+
+
+            }      
+
+
+              
+
+
+
+
+
+        </style>
+    </head>
+    <body>
+
+
+        <div class="m-container" id="m-cntner">
+         
+            <div class="fan-container">
+                <img src="fan.png" alt="fan image" id="fan-img">   
+            </div>
+
+            <div class="btn-container">
+                <button id="onbutton" class="btn on-btn">ON</button>
+                <button id="offbutton" class="btn off-btn">OFF</button>
+                <button id="one-btn" class="btn">1</button>
+                <button id="two-btn" class="btn">2</button>
+                <button id="three-btn" class="btn">3</button>
+            </div>
+
+
+        </div>
+
+
+
+        <script>
+
+        const onbutton = document.getElementById('onbutton');
+        const offbutton = document.getElementById('offbutton');
+        const onebutton  = document.getElementById('one-btn');
+        const twobutton = document.getElementById('two-btn');
+        const threebutton  = document.getElementById('three-btn');
+
+        const statLabel = document.createElement('h2');
+        statLabel.classList.add('statLabel');
+        const parentDiv = document.getElementById('m-cntner');
+        const fan = document.getElementById("fan-img");
+        let isFanOn = false; 
+        let onOnly = false;
+
+
+        const textContents = ["FAN IS ON", "NUMBER 1", "NUMBER 2", "NUMBER 3","FAN IS OFF"];
+
+            onebutton.addEventListener("click", function(){
+                if(isFanOn){
+                    onOnly= true;
+                    statLabel.classList.remove('statLabelHidden');
+                    statLabel.textContent = textContents[1];
+                    parentDiv.insertBefore(statLabel, parentDiv.firstChild); 
+                    twobutton.style.boxShadow = '';
+                    threebutton.style.boxShadow = '';
+                    onebutton.style.boxShadow = '1px 1px 3px 2px rgb(13, 255, 0), -1px -1px 3px 2px rgb(13, 255, 0)';
+                    fan.classList.remove('fan-level-2', 'fan-level-3','fan-stop');
+                    fan.classList.add('fan-level-1');
+                }
+            });
+
+            twobutton.addEventListener("click", function(){
+                if(isFanOn){
+                    onOnly= true;
+                    statLabel.classList.remove('statLabelHidden');
+                    statLabel.textContent = textContents[2];
+                    parentDiv.insertBefore(statLabel, parentDiv.firstChild);
+                    onebutton.style.boxShadow = '';
+                    threebutton.style.boxShadow = '';
+                    twobutton.style.boxShadow = '1px 1px 3px 2px rgb(13, 255, 0), -1px -1px 3px 2px rgb(13, 255, 0)';   
+                    fan.classList.remove('fan-level-1', 'fan-level-3','fan-stop');
+                    fan.classList.add('fan-level-2');
+                }
+            });
+
+        threebutton.addEventListener("click", function(){
+                if(isFanOn){
+                    onOnly= true; 
+                    statLabel.classList.remove('statLabelHidden'); 
+                    statLabel.textContent = textContents[3];
+                    parentDiv.insertBefore(statLabel, parentDiv.firstChild);
+                    twobutton.style.boxShadow = '';
+                    onebutton.style.boxShadow = '';
+                    threebutton.style.boxShadow = '1px 1px 3px 2px rgb(13, 255, 0), -1px -1px 3px 2px rgb(13, 255, 0)';   
+                    fan.classList.remove('fan-level-1', 'fan-level-2','fan-stop');
+                    fan.classList.add('fan-level-3');
+                }
+            });
+
+
+
+        onbutton.addEventListener("click", function(){
+                isFanOn = true; 
+                statLabel.classList.remove('statLabelHidden');
+                statLabel.classList.add('statLabel');
+                statLabel.textContent = textContents[0];
+                parentDiv.insertBefore(statLabel, parentDiv.firstChild);
+                onbutton.classList.add('btn-click');
+            
+    
+        });
+
+
+     offbutton.addEventListener("click", function(){
+            isFanOn= false;
+            fan.classList.remove('fan-level-1', 'fan-level-2', 'fan-level-3');
+        if(onOnly){
+            fan.classList.add('fan-stop');   
+        }
+            statLabel.textContent = textContents[4];    
+            statLabel.classList.add('statLabelHidden');
+            onbutton.classList.remove('btn-click');  
+            onebutton.style.boxShadow = '';
+            twobutton.style.boxShadow = '';
+            threebutton.style.boxShadow = '';
+        });
+
+        </script>
+    </body>
+    </html>

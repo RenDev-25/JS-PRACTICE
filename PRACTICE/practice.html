@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mini Activity</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      background-color: #f0f2f5;
+    }
+
+    form {
+      background: white;
+      padding: 20px;
+      max-width: 300px;
+      margin: auto;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 12px;
+      border: 2px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    input.valid {
+      border-color: green;
+    }
+
+    input.invalid {
+      border-color: red;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #1877f2;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <form id="userForm">
+    <label for="username">Enter your username:</label>
+    <input type="text" id="username" placeholder="Username" />
+    <button type="submit" id="submitBtn">Submit</button>
+  </form>
+
+  <script>
+  
+    const username = document.getElementById('username');
+    const userForm = document.getElementById('userForm');
+    const submit= document.getElementById('submitBtn');
+ 
+
+       username.addEventListener("input", 
+           function(event) {
+
+              event.classList.remove('valid', 'invalid');
+
+                if (event.value.trim().length < 5) {
+                event.classList.add('invalid');    // red via CSS
+                } else {
+                event.classList.add('valid');      // green via CSS
+                }
+                    
+            }
+        );
+
+
+        submit.addEventListener("submit", function(event){
+              event.preventDefault();
+
+              if(username.value.trim().length >= 4){
+                 alert("SUCCESS!!");
+
+
+              }else{
+                alert("Username too short.");
+              }
+
+        });
+
+
+  </script>
+
+</body>
+</html>
