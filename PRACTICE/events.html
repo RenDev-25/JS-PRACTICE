@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+  
+
+
+  body{
+    display: block;
+
+    
+  }
+  .mouse {
+  padding: 10px 20px;
+  font-size: 16px;
+  background: #3498db;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+
+
+    #showKey {
+      margin-top: 10px;
+      font-size: 18px;
+      color: #2c3e50;
+    }
+
+
+  </style>
+</head>
+<body>
+
+
+      <button id="clickMe" class="mouse">Click Me</button>
+      <button id="mouseOver" class="mouse">MouseOver</button>
+
+      <input type="text" id="keyboardInput" placeholder="Type something..." />
+      <div id="showKey"></div>
+     
+
+  <script>
+
+          const button = document.getElementById("clickMe");
+          const button2 = document.getElementById("mouseOver")
+          
+
+          button.addEventListener("click", function(e){
+            if(e.target === button){
+                e.target.style.backgroundColor = 'black';
+                alert("button was clicked");
+            }
+          });
+
+
+        button2.addEventListener("mouseover", function(e){
+            if(e.target === button2){
+                button2.style.backgroundColor = 'black';
+                alert("button was hover");
+            }
+
+          });
+
+
+           const input = document.getElementById("keyboardInput");   
+           const showKey = document.getElementById("showKey");
+
+     
+
+
+        input.addEventListener("keydown", function(e){
+
+            if(e.key === "Enter"){
+                showKey.textContent = input.value;
+                input.value = '';
+            }
+            
+
+          });
+
+
+
+
+          
+
+
+
+
+
+
+          
+
+
+  </script>
+  
+</body>
+
+
+</html>
