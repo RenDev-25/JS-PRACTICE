@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Movie CRUD Practice</title>
+</head>
+<body>
+  <h2>🎬 Movie List</h2>
+
+  <input type="text" id="movieInput" placeholder="Enter movie name">
+  <button id="btn">Add Movie</button>
+
+  <ul id="movieList">
+
+  </ul>
+
+  <script>
+
+   let movies = [];
+
+    const inputField = document.getElementById("movieInput");
+    const movieList = document.getElementById("movieList");
+    
+
+   const btn = document.getElementById("btn");
+
+   btn.addEventListener("click", function(){
+       const movie = inputField.value.trim();
+     if(movie != ""){
+        movies.push(movie);
+        inputField.value = ''; 
+        displaymovies();
+     }
+
+   })
+
+
+
+   function displaymovies(){
+      movieList.innerHTML = '';
+
+
+      movies.forEach(function(movie, index){
+        const li = document.createElement("li");
+        li.textContent = movie; 
+
+        const editButton = document.createElement("button");
+        editButton.textContent=  "✏️ Edit";
+        editButton.onclick= function(){
+          updateMovie(index);
+        };
+
+
+        const deleteBtn = document.createElement("button");
+          deleteBtn.textContent = "DELETE"; 
+          deleteBtn.onclick = function(){
+            deleteMovie(index);
+          };
+
+
+          li.appendChild(editButton);
+          li.appendChild(deleteBtn);
+
+          movieList.appendChild(li);
+
+      });
+   }
+
+
+   function updateMovie(index){
+
+     const currentMovie = movies[index];
+
+     const newMovie = prompt("Update a movie name: ", currentMovie);
+
+     if(newMovie !== null && newMovie.trim() !== ""){
+        movies[index] = newMovie.trim();
+        displaymovies();
+     }
+
+
+   }
+
+
+   function deleteMovie(index){
+    movies.splice(index, 1);
+    displaymovies();
+   }
+
+
+
+
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HERO</title>
+
+      <style>
+
+        h1{
+          text-align: center;
+          justify-content: center;
+        }
+      </style>
+
+</head>
+<body>
+
+
+
+        <button id="btn">SHOW</button>
+
+        <div id="box">
+
+        </div>
+
+
+
+     <script>
+
+
+        const students = [
+        { name: "Rennel", grade: 90 },
+        { name: "Alex", grade: 72 },
+        { name: "Mia", grade: 59 },
+        { name: "Liam", grade: 82 }
+        ];
+
+
+
+
+
+
+
+
+
+
+        let age = 15;
+        let name = "RENNEL";
+        const button = document.getElementById("btn");
+        let box = document.getElementById("box");
+
+        button.addEventListener("click", function(){
+            box.innerHTML = `<h1> NAME: ${name} <br> AGE: ${age} </h1>`;
+        })
+
+        
+        
+
+     </script>
+
+
+
+</body>
+</html>

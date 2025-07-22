@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie List</title>
+</head>
+<body>
+
+  <ul id="heroList"></ul>
+
+  <script>
+    const movies = [];
+    const heroList = document.getElementById("heroList");
+
+    let isWant = true;
+
+    while (isWant) {
+      let input = prompt("Enter a movie:");
+      if (input && input.trim() !== "") {
+        movies.push(input.trim());
+      }
+
+      let more = prompt("Do you want to add more? (yes/no)");
+      if (!(more.trim().toLowerCase() === "yes")) {
+        isWant = false;
+      }
+    }
+
+    // Display the movies in the list
+    function displayList() {
+      for (let i = 0; i < movies.length; i++) {
+        const li = document.createElement("li");
+        li.textContent = movies[i];
+        heroList.appendChild(li);
+      }
+    }
+
+    displayList();
+  </script>
+
+</body>
+</html>

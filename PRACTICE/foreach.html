@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+
+
+    #container{
+        
+       display: flex;
+       border: solid;
+    }
+       ul {
+      background-color: #ff0000;
+      padding: 10px;
+      width: 200px;
+      border-radius: 8px;
+    }
+
+    li {
+      padding: 5px;
+    }
+    </style>
+</head>
+<body>
+    
+
+     <div id="container">
+        <ul id="movieList">
+
+
+        </ul>
+    
+       
+        <button id="btn">SHOW LIST OF MOVIES</button>
+
+        </ul>
+
+   </div>
+
+
+     <script>
+
+        const movieList = document.getElementById("movieList");
+        const button = document.getElementById("btn");
+
+        const movies = ["The maze", "Harry Potter", "The hobbit", "365 days" , "Lord of the rings" ]
+
+       button.addEventListener("click", function(){
+         
+            movies.forEach(function(movie){
+
+                let li = document.createElement("li");
+
+                li.textContent= movie;
+                movieList.appendChild(li);
+
+            })
+             
+
+
+        })
+
+
+        
+     
+
+     </script>
+</body>
+</html>
