@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function Declaration</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            background:#f5f5f5;
+            padding:30px;
+        }
+
+        h1{
+            text-align:center;
+            color:#2563eb;
+            margin-bottom:30px;
+        }
+
+        .card{
+            background:#fff;
+            padding:20px;
+            margin-bottom:20px;
+            border-radius:10px;
+            box-shadow:0 3px 8px rgba(0,0,0,.15);
+        }
+
+        h2{
+            color:#2563eb;
+            margin-bottom:10px;
+        }
+
+        pre{
+            background:#1e1e1e;
+            color:white;
+            padding:15px;
+            border-radius:5px;
+            margin:15px 0;
+            overflow:auto;
+        }
+
+        button{
+            padding:10px 18px;
+            border:none;
+            background:#2563eb;
+            color:white;
+            border-radius:5px;
+            cursor:pointer;
+        }
+
+        button:hover{
+            background:#1d4ed8;
+        }
+
+        .output{
+            margin-top:15px;
+            padding:10px;
+            background:#eef4ff;
+            border-left:4px solid #2563eb;
+        }
+    </style>
+
+</head>
+<body>
+
+<h1>JavaScript Function Declaration</h1>
+
+<div class="card">
+    <h2>Example 1 - Display Message</h2>
+
+<pre>
+function showMessage(){
+    document.getElementById("output1").textContent =
+        "Hello JavaScript!";
+}
+</pre>
+
+    <button onclick="showMessage()">Run Example</button>
+    <div id="output1" class="output"></div>
+</div>
+
+<div class="card">
+    <h2>Example 2 - Welcome User</h2>
+
+<pre>
+function welcome(){
+    document.getElementById("output2").textContent =
+        "Welcome Student!";
+}
+</pre>
+
+    <button onclick="welcome()">Run Example</button>
+    <div id="output2" class="output"></div>
+</div>
+
+<div class="card">
+    <h2>Example 3 - Greeting Function</h2>
+
+<pre>
+function greet(name){
+    document.getElementById("output3").textContent =
+        "Hello " + name;
+}
+</pre>
+
+    <button onclick="greet('John')">Run Example</button>
+    <div id="output3" class="output"></div>
+</div>
+
+<div class="card">
+    <h2>Example 4 - Add Two Numbers</h2>
+
+<pre>
+function add(a,b){
+    return a+b;
+}
+</pre>
+
+    <button onclick="showSum()">Run Example</button>
+    <div id="output4" class="output"></div>
+</div>
+
+<div class="card">
+    <h2>Example 5 - Multiply Two Numbers</h2>
+
+<pre>
+function multiply(a,b){
+    return a*b;
+}
+</pre>
+
+    <button onclick="showProduct()">Run Example</button>
+    <div id="output5" class="output"></div>
+</div>
+
+<script>
+
+function showMessage(){
+    document.getElementById("output1").textContent = "Hello JavaScript!";
+}
+
+function welcome(){
+    document.getElementById("output2").textContent = "Welcome Student!";
+}
+
+function greet(name){
+    document.getElementById("output3").textContent = "Hello " + name + "!";
+}
+
+function add(a,b){
+    return a+b;
+}
+
+function showSum(){
+    document.getElementById("output4").textContent = add(10,20);
+}
+
+function multiply(a,b){
+    return a*b;
+}
+
+function showProduct(){
+    document.getElementById("output5").textContent = multiply(5,8);
+}
+
+</script>
+
+</body>
+</html>

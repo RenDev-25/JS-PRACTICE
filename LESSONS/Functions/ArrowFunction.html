@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrow Functions</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #f4f6f9;
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2563eb;
+            margin-bottom: 15px;
+        }
+
+        .description {
+            text-align: center;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,.1);
+        }
+
+        h2 {
+            color: #2563eb;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        pre {
+            background: #1e1e1e;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        button {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        .output {
+            margin-top: 15px;
+            padding: 10px;
+            background: #eef4ff;
+            border-left: 4px solid #2563eb;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <div class="container">
+
+
+        <h1>JavaScript Arrow Functions</h1>
+
+
+        <p class="description">
+
+            Arrow functions are a shorter way to write JavaScript functions.
+            They use the arrow (=>) syntax and are commonly used in modern
+            JavaScript development.
+
+        </p>
+
+
+
+        <!-- Example 1 -->
+
+        <div class="card">
+
+            <h2>Example 1 - Basic Arrow Function</h2>
+
+            <p>
+                A simple arrow function that returns a message.
+            </p>
+
+            <pre>
+const message = () => {
+    return "Hello JavaScript";
+};
+            </pre>
+
+
+            <button onclick="example1()">
+                Run Example
+            </button>
+
+
+            <div id="output1" class="output"></div>
+
+        </div>
+
+
+
+
+        <!-- Example 2 -->
+
+        <div class="card">
+
+            <h2>Example 2 - Arrow Function Without Parameter</h2>
+
+            <p>
+                An arrow function that does not receive any value.
+            </p>
+
+
+            <pre>
+const welcome = () => {
+    return "Welcome Student";
+};
+            </pre>
+
+
+            <button onclick="example2()">
+                Run Example
+            </button>
+
+
+            <div id="output2" class="output"></div>
+
+        </div>
+
+
+
+
+        <!-- Example 3 -->
+
+        <div class="card">
+
+            <h2>Example 3 - One Parameter</h2>
+
+            <p>
+                An arrow function that accepts one parameter.
+            </p>
+
+
+            <pre>
+const greet = name => {
+    return "Hello " + name;
+};
+            </pre>
+
+
+            <button onclick="example3()">
+                Run Example
+            </button>
+
+
+            <div id="output3" class="output"></div>
+
+        </div>
+
+
+
+
+        <!-- Example 4 -->
+
+        <div class="card">
+
+            <h2>Example 4 - Multiple Parameters</h2>
+
+            <p>
+                An arrow function that uses multiple parameters.
+            </p>
+
+
+            <pre>
+const add = (a,b) => {
+    return a + b;
+};
+            </pre>
+
+
+            <button onclick="example4()">
+                Run Example
+            </button>
+
+
+            <div id="output4" class="output"></div>
+
+        </div>
+
+
+
+
+        <!-- Example 5 -->
+
+        <div class="card">
+
+            <h2>Example 5 - Short Return Arrow Function</h2>
+
+            <p>
+                Arrow functions can remove braces and return keyword
+                when returning one value.
+            </p>
+
+
+            <pre>
+const multiply = (a,b) => a * b;
+            </pre>
+
+
+            <button onclick="example5()">
+                Run Example
+            </button>
+
+
+            <div id="output5" class="output"></div>
+
+        </div>
+
+       <!-- Example 6 -->
+
+<div class="card">
+
+    <h2>Example 6 - Calculate Square</h2>
+
+    <p>
+        An arrow function that performs a mathematical calculation.
+    </p>
+
+
+    <pre>
+const square = number => number * number;
+    </pre>
+
+
+    <button onclick="example6()">
+        Run Example
+    </button>
+
+
+    <div id="output6" class="output"></div>
+
+</div>
+
+
+<!-- Example 7 -->
+
+<div class="card">
+
+    <h2>Example 7 - Rectangle Area</h2>
+
+    <p>
+        An arrow function that uses multiple parameters to calculate an area.
+    </p>
+
+
+    <pre>
+const area = (length,width) =>
+length * width;
+    </pre>
+
+
+    <button onclick="example7()">
+        Run Example
+    </button>
+
+
+    <div id="output7" class="output"></div>
+
+</div>
+
+
+
+
+<!-- Example 8 -->
+
+<div class="card">
+
+    <h2>Example 8 - Full Name</h2>
+
+    <p>
+        An arrow function that combines two values and returns a string.
+    </p>
+
+
+    <pre>
+const fullName = (first,last) => {
+
+    return first + " " + last;
+
+};
+    </pre>
+
+
+    <button onclick="example8()">
+        Run Example
+    </button>
+
+
+    <div id="output8" class="output"></div>
+
+</div>
+
+
+
+
+<!-- Example 9 -->
+
+<div class="card">
+
+    <h2>Example 9 - Check Even Number</h2>
+
+    <p>
+        An arrow function that checks if a number is even.
+    </p>
+
+
+    <pre>
+const checkEven = number =>
+number % 2 === 0;
+    </pre>
+
+
+    <button onclick="example9()">
+        Run Example
+    </button>
+
+
+    <div id="output9" class="output"></div>
+
+</div>
+
+
+
+
+<!-- Example 10 -->
+
+<div class="card">
+
+    <h2>Example 10 - Arrow Function with DOM</h2>
+
+    <p>
+        An arrow function that changes content using the DOM.
+    </p>
+
+
+    <pre>
+const changeText = () => {
+
+    document text
+
+};
+    </pre>
+
+
+    <button onclick="example10()">
+        Run Example
+    </button>
+
+
+    <div id="output10" class="output"></div>
+
+</div>
+
+
+
+
+<!-- Example 11 -->
+
+<div class="card">
+
+    <h2>Example 11 - Arrow Function with One Parameter</h2>
+
+    <p>
+        An arrow function that receives a value and displays it.
+    </p>
+
+
+    <pre>
+const changeText = (name) => {
+
+    document text
+
+};
+    </pre>
+
+
+    <button onclick="example11()">
+        Run Example
+    </button>
+
+
+    <div id="output11" class="output"></div>
+
+</div>
+
+
+
+</div>
+
+
+
+<script>
+
+
+function example1(){
+
+    const message = () => {
+        return "Hello JavaScript";
+    };
+
+    output1.textContent = message();
+
+}
+
+
+
+function example2(){
+
+    const welcome = () => {
+        return "Welcome Student";
+    };
+
+    output2.textContent = welcome();
+
+}
+
+
+
+function example3(){
+
+    const greet = name => {
+        return "Hello " + name;
+    };
+
+    output3.textContent = greet("John");
+
+}
+
+
+
+function example4(){
+    const add = (a,b) => {
+        return a + b;
+    };
+    output4.textContent = add(10,20);
+
+}
+
+
+
+function example5(){
+    const multiply = (a,b) => a * b;
+    output5.textContent = multiply(5,8);
+
+}
+
+
+
+function example6(){
+
+    const square = number => number * number;
+
+    output6.textContent = square(6);
+
+}
+
+
+
+function example7(){
+
+    const area = (length,width) =>
+        length * width;
+
+    output7.textContent = area(10,5);
+
+}
+
+
+
+function example8(){
+
+    const fullName = (first,last) => {
+
+        return first + " " + last;
+
+    };
+
+    output8.textContent = fullName("John","Doe");
+
+}
+
+
+
+function example9(){
+
+    const checkEven = number =>
+        number % 2 === 0;
+
+    output9.textContent = checkEven(10);
+
+}
+
+
+
+function example10(){
+
+    const changeText = () => {
+
+        output10.textContent =
+        "Arrow Function Works!";
+
+    };
+
+
+    changeText();
+
+}
+
+
+
+function example11(){
+
+    const changeText = (name) => {
+
+        return "Hello " + name;
+
+    };
+
+
+    output11.textContent =
+        changeText("Rennel");
+
+}
+
+
+
+</script>
+
+
+</body>
+
+</html>

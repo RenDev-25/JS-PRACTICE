@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Named Function Expressions</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #f4f6f9;
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2563eb;
+            margin-bottom: 30px;
+        }
+
+        .card {
+
+            background: white;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,.1);
+
+        }
+
+        h2 {
+
+            color:#2563eb;
+            margin-bottom:15px;
+
+        }
+
+        pre {
+
+            background:#1e1e1e;
+            color:white;
+            padding:15px;
+            border-radius:8px;
+            margin-bottom:15px;
+
+        }
+
+        button {
+
+            background:#2563eb;
+            color:white;
+            border:none;
+            padding:10px 18px;
+            border-radius:6px;
+            cursor:pointer;
+
+        }
+
+        button:hover {
+
+            background:#1d4ed8;
+
+        }
+
+        .output {
+
+            margin-top:15px;
+            padding:10px;
+            background:#eef4ff;
+            border-left:4px solid #2563eb;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+<div class="container">
+
+<h1>Named Function Expressions</h1>
+
+
+<!-- Example 1 -->
+
+<div class="card">
+
+<h2>Example 1 - Basic Named Function Expression</h2>
+
+<pre>
+const message = function showMessage(){
+
+    return "Hello JavaScript";
+
+};
+</pre>
+
+<button onclick="example1()">
+    Run Example
+</button>
+
+<div id="output1" class="output"></div>
+
+</div>
+
+
+<!-- Example 2 -->
+
+<div class="card">
+
+<h2>Example 2 - Named Function with Parameter</h2>
+
+<pre>
+const greet = function sayHello(name){
+
+    return "Hello " + name;
+
+};
+</pre>
+
+<button onclick="example2()">
+    Run Example
+</button>
+
+<div id="output2" class="output"></div>
+
+</div>
+
+
+<!-- Example 3 -->
+
+<div class="card">
+
+<h2>Example 3 - Named Function Returning Value</h2>
+
+<pre>
+const add = function addition(a,b){
+
+    return a + b;
+
+};
+</pre>
+
+<button onclick="example3()">
+    Run Example
+</button>
+
+<div id="output3" class="output"></div>
+
+</div>
+
+
+<!-- Example 4 -->
+
+<div class="card">
+
+<h2>Example 4 - Named Function Calculation</h2>
+
+<pre>
+const square = function calculateSquare(number){
+
+    return number * number;
+
+};
+</pre>
+
+<button onclick="example4()">
+    Run Example
+</button>
+
+<div id="output4" class="output"></div>
+
+</div>
+
+
+<!-- Example 5 -->
+
+<div class="card">
+
+<h2>Example 5 - Named Function with DOM</h2>
+
+<pre>
+const display = function showResult(){
+
+    document.getElementById("output5")
+    .textContent = "Result Displayed";
+
+};
+</pre>
+
+<button onclick="example5()">
+    Run Example
+</button>
+
+<div id="output5" class="output"></div>
+
+</div>
+
+
+</div>
+
+
+<script>
+
+
+function example1(){
+    const message = function showMessage(){
+        return "Hello JavaScript";
+    };
+
+    document.getElementById("output1").textContent = message();
+
+}
+
+
+function example2(){
+    const greet = function sayHello(name){
+        return "Hello " + name;
+    };
+
+    document.getElementById("output2").textContent = greet("John");
+
+}
+
+
+function example3(){
+    const add = function addition(a,b){
+        return a + b;
+    };
+
+    document.getElementById("output3").textContent = add(10,20);
+
+}
+
+
+function example4(){
+    const square = function calculateSquare(number){
+        return number * number;
+    };
+    
+    document.getElementById("output4").textContent = square(5);
+}
+
+
+function example5(){
+    const display = function showResult(){
+        document.getElementById("output5").textContent = "Result Displayed";
+    };
+    
+    display();
+}
+
+
+</script>
+
+
+</body>
+</html>
