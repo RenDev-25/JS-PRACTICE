@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Grades</title>
+  <style>
+
+
+    .pass { 
+    color: green; 
+    }
+
+    .fail { 
+    color: red;
+     }
+
+
+  </style>
+</head>
+<body>
+
+  <button id="showGrades">Show Grades</button>
+  <div id="output">
+
+
+  </div>
+
+
+
+  <script>
+
+          const students = [
+            { name: "Rennel", grade: 90 },
+            { name: "Alex", grade: 72 },
+            { name: "Mia", grade: 59 },
+            { name: "Liam", grade: 82 }
+            ];
+
+
+        const button = document.getElementById("showGrades")
+        const output = document.getElementById("output");
+
+        button.addEventListener("click", function(){
+               let message =  "";
+
+            students.forEach(function(student){
+
+                let pass = "PASSED ✅";
+                let failed= "FAILED ❌";
+              
+                 if(student.grade > 69){
+                    message += `<p> ${student.name} - Grade: ${student.grade}
+                        -  <span class="pass">${pass}</span></p>`;
+                 }else{
+                    message += `<p> ${student.name} - Grade: ${student.grade}
+                        -  <span class="fail">${failed}</span></p>`;
+                 }
+            })
+
+
+             output.innerHTML = message;
+          
+        })
+
+  </script>
+</body>
+</html>

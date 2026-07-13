@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f6f9;
+      padding: 30px;
+      display: flex;
+      justify-content: start;
+      gap: 20px;
+    }
+
+    .form-container {
+      max-width: 500px;
+      width: 450px;
+      background-color: #fff;
+      padding: 20px 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border: solid;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .form-group {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      padding: 5px; 
+    }
+
+    .form-group label {
+      width: 130px;
+      margin-right: 10px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .form-group input,
+    .form-group select {
+      flex: 1;
+      padding: 8px 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    .form-group select:focus,
+    .form-group input:focus {
+      border-color: #007BFF;
+      outline: none;
+    }
+
+    .coursesGroup {
+      display: flex;
+      justify-content: start;
+    }
+
+    .sub-form-group {
+      margin-left: -40px;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    #outputContainer {
+      width: 450px;
+      height: auto;
+      border: solid black;
+      background: rgba(255, 0, 0, 0.1);
+      overflow-y: auto;
+      padding: 10px;
+    }
+
+    #outputContainer h1 {
+      text-align: center;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    ul li {
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Student Information Form</h2>
+    <form id="studentForm">
+      <div class="form-group">
+        <label for="fullname">Full Name:</label>
+        <input type="text" id="fullname" name="fullname" required>
+      </div>
+
+      <div class="form-group">
+        <label for="srcode">SR Code:</label>
+        <input type="text" id="srcode" name="srcode" required>
+      </div>
+
+      <div class="form-group">
+        <label for="college">College:</label>
+        <select id="college" name="college" required>
+          <option value="">Select College</option>
+          <option value="CAS">CAS</option>
+          <option value="CEAFA">CEAFA</option>
+          <option value="CICS">CICS</option>
+          <option value="CTE">CTE</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="campus">Campus:</label>
+        <select id="campus" name="campus" required>
+          <option value="">Select Campus</option>
+          <option value="Main">Main Campus</option>
+          <option value="Lipa">Lipa Campus</option>
+          <option value="Nasugbu">Nasugbu Campus</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="program">Program:</label>
+        <select id="program" name="program" required>
+          <option value="">Select Program</option>
+          <option value="BSIT">BSIT</option>
+          <option value="BSCS">BSCS</option>
+          <option value="BSIS">BSIS</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="year">Year Level:</label>
+        <select id="year" name="year" required>
+          <option value="">Select Year</option>
+          <option value="1st Year">1st Year</option>
+          <option value="2nd Year">2nd Year</option>
+          <option value="3rd Year">3rd Year</option>
+          <option value="4th Year">4th Year</option>
+        </select>
+      </div>
+
+      <div class="form-group coursesGroup">
+        <label class="courses">Courses:</label>
+        <div class="sub-form-group" id="subFormGroup">
+          <input type="checkbox" value="Bike" class="course">
+          <label>I have a bike</label><br>
+
+          <input type="checkbox" value="Car" class="course">
+          <label>I have a car</label><br>
+
+          <input type="checkbox" value="Boat" class="course">
+          <label>I have a boat</label><br>
+
+          <input type="checkbox" value="Plane" class="course">
+          <label>I have a plane</label><br>
+
+          <input type="checkbox" value="Train" class="course">
+          <label>I have a train</label><br>
+
+          <input type="checkbox" value="Helicopter" class="course">
+          <label>I have a helicopter</label><br>
+        </div>
+      </div>
+
+      <button type="submit" id="btn">Enroll</button>
+    </form>
+  </div>
+
+  <div id="outputContainer">
+    <h1>ENROLLED STUDENTS</h1>
+    <div id="studList"></div>
+  </div>
+
+  <script>
+    var fullname = document.getElementById("fullname");
+    var srcode = document.getElementById("srcode");
+    var college = document.getElementById("college");
+    var campus = document.getElementById("campus");
+    var program = document.getElementById("program");
+    var year = document.getElementById("year");
+    var courses = document.getElementsByClassName("course");
+    var studList = document.getElementById("studList");
+    var button = document.getElementById("btn");
+    var output = document.getElementById("outputContainer");
+    var h2 = document.createElement("h2");
+
+    var studnum = 1;
+
+    button.addEventListener("click", function(e) {
+      e.preventDefault();
+
+      h2.textContent = "";
+
+      // collect selected course values
+      var selectedCourses = [];
+      for (var i = 0; i < courses.length; i++) {
+        if (courses[i].checked) {
+          selectedCourses.push(courses[i].value);
+        }
+      }
+
+      // validation
+      if (
+        fullname.value.trim() !== "" &&
+        srcode.value.trim() !== "" &&
+        college.value !== "" &&
+        campus.value !== "" &&
+        program.value !== "" &&
+        year.value !== "" &&
+        selectedCourses.length > 0
+      ) {
+        var div = document.createElement("div");
+        div.innerHTML =
+          "<h2>Student " + studnum + "</h2>" +
+          "<ul>" +
+          "<li><strong>Full Name:</strong> " + fullname.value + "</li>" +
+          "<li><strong>SR Code:</strong> " + srcode.value + "</li>" +
+          "<li><strong>College:</strong> " + college.value + "</li>" +
+          "<li><strong>Campus:</strong> " + campus.value + "</li>" +
+          "<li><strong>Program:</strong> " + program.value + "</li>" +
+          "<li><strong>Year Level:</strong> " + year.value + "</li>" +
+          "<li><strong>Courses:</strong> " + selectedCourses.join(", ") + "</li>" +
+          "</ul>";
+
+        studList.appendChild(div);
+        studnum++;
+
+        // reset form
+        fullname.value = "";
+        srcode.value = "";
+        college.value = "";
+        campus.value = "";
+        program.value = "";
+        year.value = "";
+
+        for (var j = 0; j < courses.length; j++) {
+          courses[j].checked = false;
+        }
+      } else {
+        h2.textContent = "Please fill in all required fields and select at least one course!";
+        output.appendChild(h2);
+      }
+    });
+  </script>
+</body>
+</html>

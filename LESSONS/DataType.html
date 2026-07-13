@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Variables</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #f4f6f9;
+            padding: 40px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 35px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, .1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #0d6efd;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: #f8f9fa;
+            border-left: 6px solid #0d6efd;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        .card h2 {
+            margin-bottom: 15px;
+            color: #0d6efd;
+        }
+
+        .card ol {
+            padding-left: 20px;
+            line-height: 2;
+        }
+
+        .example {
+            margin-top: 30px;
+        }
+
+        .example h2 {
+            color: #0d6efd;
+            margin-bottom: 15px;
+        }
+
+        .code {
+            background: #1e1e1e;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 8px;
+            overflow: auto;
+            font-family: Consolas, monospace;
+            margin-top: 15px;
+            line-height: 1.7;
+        }
+
+        button {
+            margin-top: 20px;
+            background: #0d6efd;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: .3s;
+        }
+
+        button:hover {
+            background: #0b5ed7;
+        }
+
+        .output {
+            margin-top: 20px;
+            background: #e8f5e9;
+            border-left: 5px solid #28a745;
+            padding: 15px;
+            border-radius: 6px;
+        }
+
+        .output h3 {
+            margin-bottom: 10px;
+        }
+
+        #result {
+            font-weight: bold;
+            color: #198754;
+        }
+
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+            color: #777;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>TWO KINDS OF VARIABLE DECLARATION IN JAVASCRIPT</h1>
+        <p class="subtitle">
+            Using <strong>const</strong> and <strong>let</strong> in Modern JavaScript
+        </p>
+
+        <div class="card">
+            <h2>When to Use <code>var</code>, <code>let</code>, or <code>const</code>?</h2>
+            <ol>
+                <li>Always declare your variables.</li>
+                <li>Use <strong>const</strong> if the variable should not be reassigned.</li>
+                <li>Use <strong>const</strong> for arrays and objects when the reference should stay the same.</li>
+                <li>Use <strong>let</strong> only when the variable's value needs to change.</li>
+                <li>Avoid using <strong>var</strong> in modern JavaScript projects.</li>
+            </ol>
+        </div>
+
+        <div class="example">
+            <h2>Example 1 — const</h2>
+            <p>
+            The button below is stored in a <strong>const</strong> variable because it always refers to the same HTML element.
+            </p>
+            <button id="submitBtn"> Click Me  </button>
+        </div>
+
+        <div class="example">
+            <h2>Example 2 — let</h2>
+            <p>
+                The score changes over time, so we use <strong>let</strong>.</p>
+            <div class="output">
+                <h3>Current Score</h3>
+                <p id="result">0</p>
+            </div>
+        </div>
+
+        <div class="footer">
+            Modern JavaScript Best Practice:
+            Use <strong>const</strong> by default.
+            Use <strong>let</strong> only when a value changes.
+        </div>
+    </div>
+
+    <script>
+
+        /* ===========================
+           Example 1 - const
+        =========================== */
+
+        const submitButton = document.getElementById("submitBtn");
+            submitButton.addEventListener("click", function () {
+                alert("Button clicked!");
+        });
+
+        /* ===========================
+           Example 2 - let
+        =========================== */
+
+        let score = 0;
+        score += 10;
+        score += 20;
+        score += 30;
+
+        document.getElementById("result").textContent = score;
+        console.log(score);
+
+    </script>
+
+</body>
+</html>
