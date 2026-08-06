@@ -1,0 +1,82 @@
+#mainContainer{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f4;
+}
+
+#frmContainer{
+    width: 350px;
+    padding: 25px;
+    background-color: #1e1e1e;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.loginLabel{
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+form label{
+    color: white;
+    margin-top: 10px;
+}
+
+form input[type="email"],
+form input[type="password"]{
+    padding: 10px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 5px;
+}
+
+.options{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.options label{
+    color: white;
+}
+
+.options a{
+    color: #4da6ff;
+    text-decoration: none;
+}
+
+button{
+    margin-top: 20px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover{
+    background-color: #0056b3;
+}
+
+.registerText{
+    text-align: center;
+    color: white;
+    margin-top: 15px;
+}
+
+.registerText a{
+    color: #4da6ff;
+    text-decoration: none;
+}
