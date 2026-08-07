@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO DO LIST</title>
+
+
+    <style>
+
+            body{
+                display: flex;
+                justify-content: center;
+                
+            }
+
+        .main-container{
+            background-color: azure;
+            height: 70vh;
+            width:60vh;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            border-radius: 10px;
+            border-color: blue;
+        }
+
+        h1{
+            text-align: center;
+        }
+
+        ul{
+          
+            padding-right: 50px;
+            padding-left: 0;
+        }
+
+       
+
+        .task-item{
+            background-color: lightgray;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            width:250px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .delete-btn{
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .delete-btn:hover{
+            background-color: darkred;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div class="main-container">
+        
+        <h1>TO DO LIST</h1>
+
+        <div id="form-container">
+            <input id="taskInput" type="text" placeholder="New Task">
+            <button id="add-btn" onclick="addTask()">ADD TASK</button>
+
+              <ul id="list">
+                  
+              </ul>
+              <button id="clear-btn" onclick="clearAll()">Clear All</button>
+        </div>
+
+    </div>
+
+
+
+
+
+    <script>
+
+        let tasks = []; 
+
+        const lists = document.getElementById("list"); 
+
+
+     // FUNCTION TO DISPLAY TASKS
+     const displayTasks = () => {
+          let listsElements = "";
+             for(let i = 0; i < tasks.length; i++){
+                 listsElements  +=  "<li class = 'task-item'>" +  tasks[i] + "<button class = 'delete-btn' onclick = 'removeTask(" + i + ")'>x</button>";  
+        }
+
+        lists.innerHTML = listsElements ;  
+      }
+
+
+      // FUNCTION TO ADD  TASKS
+    const addTask = () => {
+     
+     let taskInput = document.getElementById("taskInput");
+     let text = taskInput.value;
+
+     if(text === ""){
+        return;
+     }
+
+     tasks.push(text);
+     taskInput.value= "";
+     saveTasks(); 
+     displayTasks();
+
+    }
+
+    const removeTask = (i) =>{
+        tasks.splice(i,1);
+        saveTasks();
+        displayTasks();
+    } 
+
+    const clearAll = () => {
+        tasks = [];
+        saveTasks();
+        displayTasks();
+    }
+
+    const saveTasks = () => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+    }
+
+
+
+   
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+    </script>
+</body>
+</html>
